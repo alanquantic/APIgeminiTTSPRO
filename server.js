@@ -273,9 +273,10 @@ app.get('/voices', (req, res) => {
     });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`
+// Start server only if not in Vercel (Vercel handles this automatically)
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`
 ╔═══════════════════════════════════════════════════════════╗
 ║           TTS API Pro - Gemini 2.5 Pro TTS                ║
 ╠═══════════════════════════════════════════════════════════╣
@@ -292,5 +293,9 @@ app.listen(PORT, () => {
 ║    POST /synthesize - Generate narration                  ║
 ║    GET  /voices   - List available voices                 ║
 ╚═══════════════════════════════════════════════════════════╝
-    `);
-});
+        `);
+    });
+}
+
+// Export for Vercel serverless
+export default app;
