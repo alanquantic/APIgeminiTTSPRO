@@ -79,38 +79,41 @@ function pcmToWav(pcmBase64) {
  * Voice configuration for meditation (Gemini TTS voices)
  * Selected for calm, soothing qualities ideal for meditation
  * 
- * Available voices (30 total):
- * - Zephyr (Bright), Puck (Upbeat), Charon (Informative), Kore (Firm)
- * - Fenrir (Excitable), Leda (Youthful), Orus (Firm), Aoede (Breezy)
- * - Callirrhoe (Easy-going), Autonoe (Bright), Enceladus (Breathy)
- * - Iapetus (Clear), Umbriel (Easy-going), Algieba (Smooth)
- * - Despina (Smooth), Erinome (Clear), Algenib (Gravelly)
- * - Rasalgethi (Informative), Laomedeia (Upbeat), Achernar (Soft)
- * - Alnilam (Firm), Schedar (Even), Gacrux (Mature)
- * - Pulcherrima (Forward), Achird (Friendly), Zubenelgenubi (Casual)
- * - Vindemiatrix (Gentle), Sadachbia (Lively), Sadaltager (Knowledgeable)
+ * MALE voices (16 total):
+ * - Puck (Upbeat), Charon (Informative), Fenrir (Excitable), Orus (Firm)
+ * - Achird (Friendly), Algenib (Gravelly), Algieba (Smooth), Alnilam (Firm)
+ * - Enceladus (Breathy), Iapetus (Clear), Rasalgethi (Informative)
+ * - Sadachbia (Lively), Sadaltager (Knowledgeable), Schedar (Even)
+ * - Umbriel (Easy-going), Zubenelgenubi (Casual)
+ * 
+ * FEMALE voices (14 total):
+ * - Zephyr (Bright), Kore (Firm), Leda (Youthful), Aoede (Breezy)
+ * - Callirrhoe (Easy-going), Autonoe (Bright), Despina (Smooth)
+ * - Erinome (Clear), Laomedeia (Upbeat), Achernar (Soft)
+ * - Gacrux (Mature), Pulcherrima (Forward), Vindemiatrix (Gentle)
  * - Sulafat (Warm)
  */
 const VOICE_CONFIG = {
     'es-latam': {
-        male: 'Sulafat',       // Warm - ideal for calming male voice
-        female: 'Achernar',    // Soft - gentle female voice for meditation
-        neutral: 'Aoede',      // Breezy - serene neutral option
+        male: 'Enceladus',     // Breathy - calm male voice for meditation
+        female: 'Sulafat',     // Warm - soothing female voice
+        neutral: 'Schedar',    // Even - balanced neutral male voice
     },
     'en': {
-        male: 'Sulafat',       // Warm - soothing male voice
+        male: 'Enceladus',     // Breathy - ethereal male voice
         female: 'Vindemiatrix', // Gentle - calming female voice
-        neutral: 'Enceladus',  // Breathy - ethereal neutral voice
+        neutral: 'Schedar',    // Even - balanced neutral voice
     },
 };
 
 // Voice descriptions for documentation
 const VOICE_DESCRIPTIONS = {
-    'Sulafat': 'Warm - Soothing and comforting',
-    'Achernar': 'Soft - Gentle and delicate',
-    'Aoede': 'Breezy - Light and serene',
-    'Vindemiatrix': 'Gentle - Calm and peaceful',
-    'Enceladus': 'Breathy - Ethereal and meditative',
+    'Enceladus': 'Breathy - Ethereal and meditative (Male)',
+    'Sulafat': 'Warm - Soothing and comforting (Female)',
+    'Schedar': 'Even - Balanced and serene (Male/Neutral)',
+    'Vindemiatrix': 'Gentle - Calm and peaceful (Female)',
+    'Umbriel': 'Easy-going - Relaxed and calm (Male)',
+    'Algieba': 'Smooth - Pleasant and flowing (Male)',
 };
 
 /**
@@ -285,8 +288,8 @@ if (!process.env.VERCEL) {
 ║  Timeout: ${REQUEST_TIMEOUT_MS/1000}s | Retries: 2                             ║
 ║                                                           ║
 ║  Voices for meditation:                                   ║
-║    ES: Sulafat (M), Achernar (F), Aoede (N)              ║
-║    EN: Sulafat (M), Vindemiatrix (F), Enceladus (N)      ║
+║    ES: Enceladus (M), Sulafat (F), Schedar (N)           ║
+║    EN: Enceladus (M), Vindemiatrix (F), Schedar (N)      ║
 ║                                                           ║
 ║  Endpoints:                                               ║
 ║    GET  /         - Health check                          ║
